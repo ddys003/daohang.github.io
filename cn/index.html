@@ -308,9 +308,239 @@
                     </li>
                    
                 </ul>
-                <!-- <a href="https://github.com/WebStackPage/WebStackPage.github.io" target="_blank"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a> -->
-
             </nav>
+
+            <div id="search" class="s-search">
+                <div id="search-list" class="hide-type-list">
+                    <div class="search-group group-a s-current">
+                        <ul class="search-type">
+                            <!-- 
+                                1. 要改这个地方
+                                在这里填要显示在页面的几个标签 
+                            -->
+                           <li>
+                                <input checked="" hidden="" type="radio" name="type" id="type-baidu">
+                                <label for="type-baidu">
+                                    <span style="color:#2100E0">UP云搜</span>
+                                </label>
+                            </li>
+                            <li>
+                                <input hidden="" type="radio" name="type" id="type-google">
+                                <label for="type-google">
+                                    <span style="color:#fa3b5e">易搜</span>
+                                </label>
+                            </li>
+                            <li>
+                                <input hidden="" type="radio" name="type" id="type-zhannei">
+                                <label for="type-zhannei">
+                                    <span style="color:#46f867">优聚搜</span>
+                                </label>
+                            </li>
+                            <li>
+                                <input hidden="" type="radio" name="type" id="type-taobao">
+                                <label for="type-taobao">
+                                    <span style="color:#f40">奈斯搜</span>
+                                </label>
+                            </li>
+                            <li>
+                                <input hidden="" type="radio" name="type" id="type-bing1">
+                                <label for="type-bing1">
+                                    <span style="color:#007daa">千帆搜</span>
+                                </label>
+                            </li>
+                            <li>
+                                <input hidden="" type="radio" name="type" id="type-bing">
+                                <label for="type-bing">
+                                    <span style="color:#0baa00">喵狸盘搜</span>
+                                </label>
+                            </li>
+                           
+                        
+                        </ul>
+                    </div>                
+                </div>
+                <form action="https://www.baidu.com/s?wd=" method="get" target="_blank" id="super-search-fm">
+                    <input type="text" id="search-text" placeholder="百度一下" style="outline:0"><button id="search-action" type="submit"><i class="fa fa-search "></i></button></form>
+                <div class="set-check hidden-xs">
+                    <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
+                </div>
+            </div>
+
+            <script>
+                const searchList = [
+                // 2. 需要改这个地方，这个列表的数量要和上面的对的上
+                //    默认渲染第一个
+                    {
+                        "name": "UP云搜",
+                        "url": "https://www.upyunso.com/search.html?page=1&keyword=",
+                        "placeholder": "UP云搜"
+                    },
+                    {
+                        "name": "易搜",
+                        "url": "https://yiso.fun/info?searchKey=",
+                        "placeholder": "易搜"
+                    },
+                    {
+                        "name": "优聚搜",
+                        "url": "https://kankanso.com/#/main/common?q=",
+                        "placeholder": "优聚搜"
+                    },
+                    {
+                        "name": "奈斯搜",
+                        "url": "https://www.niceso.net/search/?q=",
+                        "placeholder": "奈斯搜"
+                    },
+                    {
+                        "name": "千帆搜",
+                        "url": "https://tg.qianfan.app/search/?q=",
+                        "placeholder": "千帆搜"
+                    },
+                     {
+                        "name": "喵狸盘搜",
+                        "url": "https://www.alipansou.com/search?k=",
+                        "placeholder": "喵狸盘搜"
+                    }
+                    
+                ]
+                // 监听 ul search-type 的点击事件
+                const all_li = document.querySelectorAll('.search-type li')
+                // 默认渲染第一个
+                const { url, placeholder } = searchList[0]
+                document.querySelector('#super-search-fm').action = url
+                document.querySelector('#search-text').placeholder = placeholder
+                all_li.forEach((item, index) => {
+                    item.addEventListener('click', () => {
+                        // console.log(item)
+                        // console.log(index)
+                        // console.log(searchList[index])
+                        const { url, placeholder } = searchList[index]
+                        // console.log(url)
+                        // console.log(placeholder)
+                        // 修改 input 的 value
+                        document.querySelector('#super-search-fm').action = url
+                        // 修改 input 的 placeholder
+                        document.querySelector('#search-text').placeholder = placeholder
+                    })
+                })
+                // 去掉 #search-action 的默认行为
+                document.querySelector('#search-action').addEventListener('click', (e) => {
+                    e.preventDefault()
+                    // 获取 input 的 value
+                    const value = document.querySelector('#search-text').value
+                    // 获取 form 的 action
+                    const action = document.querySelector('#super-search-fm').action
+                    // 判断 placeholder 是否为百度一下
+                    window.open(action + value)
+                })
+            </script>
+            
+             <!-- 本站置顶 -->
+            <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="本站置顶"></i>本站置顶</h4>
+            <div class="row">
+               <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://link3.cc/jinjishe', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="最新、最全的云盘资源文档">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/qwypzys.png" class="lozad img-circle" width="40">
+                            </a>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>3000T网盘资源文档</strong>
+                                </a>
+                                <p class="overflowClip_2">⭐永久最新文档地址发布页⭐</p>
+                            </div>
+                        </div>
+                    </div>
+                     </div>
+                 <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://docs.qq.com/sheet/DQ1JOUEpZV3dQVVVP', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/qwypzys.png" class="lozad img-circle" width="40">
+                            </a>
+                            <span class="label label-info" data-toggle="tooltip" data-placement="left" title="" data-original-title="Hello I am a Tooltip"></span>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>夸克网盘资源文档</strong>
+                                </a>
+                                <p class="overflowClip_2"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+ 
+     
+          
+                <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://docs.qq.com/doc/DR0lBb3ZHemtxbUZn', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/qwypzys.png" class="lozad img-circle" width="40">
+                            </a>
+                            <span class="label label-info" data-toggle="tooltip" data-placement="left" title="" data-original-title="Hello I am a Tooltip"></span>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>夸克网盘推广项目，零成本创业首选！</strong>
+                                </a>
+                                <p class="overflowClip_2"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('http://wrm8.ysepan.com/', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="你想要的这里都有！">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/20220512-135625.png" class="lozad img-circle" width="40">
+                            </a>
+                            <span class="label label-info" data-toggle="tooltip" data-placement="left" title="" data-original-title="Hello I am a Tooltip"></span>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>万人迷社区</strong>
+                                </a>
+                                <p class="overflowClip_2">精选云盘资源文档</p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                       <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://docs.qq.com/doc/DR2JnYkhUekpiVXFY', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/qwypzys.png" class="lozad img-circle" width="40">
+                            </a>
+                            <span class="label label-info" data-toggle="tooltip" data-placement="left" title="" data-original-title="Hello I am a Tooltip"></span>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>5TB精选移动云盘资源</strong>
+                                </a>
+                                <p class="overflowClip_2"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                       <div class="col-sm-3">
+                    <div class="xe-widget xe-conversations box2 label-info" onclick="window.open('https://pan.xunlei.com/s/VNPwfajXeffr8MMK3AWTu4FXA1?pwd=r42n#', '_blank')" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="">
+                        <div class="xe-comment-entry">
+                            <a class="xe-user-img">
+                                <img data-src="/assets/images/qwypzys.png" class="lozad img-circle" width="40">
+                            </a>
+                            <span class="label label-info" data-toggle="tooltip" data-placement="left" title="" data-original-title="Hello I am a Tooltip"></span>
+                            <div class="xe-comment">
+                                <a href="#" class="xe-user-name overflowClip_1">
+                                    <strong>迅雷网盘资源</strong>
+                                </a>
+                                <p class="overflowClip_2"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+
+                </div>
+            <br />
+             <!--end 本站置顶 -->
+            
             <!-- 常用学习 -->
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="常用学习"></i>常用学习</h4>
             <div class="row">
