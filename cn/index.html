@@ -248,143 +248,31 @@
                 </ul>
             </div>
         </div>
-        <div class="main-content">
-            <nav class="navbar user-info-navbar" role="navigation">
-                <!-- User Info, Notifications and Menu Bar -->
-                <!-- Left links for user info navbar -->
-                <ul class="user-info-menu left-links list-inline list-unstyled">
-                    <li class="hidden-sm hidden-xs">
-                        <a href="#" data-toggle="sidebar">
-                            <i class="fa-bars"></i>
-                        </a>
-                    </li>
-                   
-                </ul>
-            </nav>
-
-            <div id="search" class="s-search">
-                <div id="search-list" class="hide-type-list">
-                    <div class="search-group group-a s-current">
-                        <ul class="search-type">
-                            <!-- 
-                                1. 要改这个地方
-                                在这里填要显示在页面的几个标签 
-                            -->
-                           <li>
-                                <input checked="" hidden="" type="radio" name="type" id="type-baidu">
-                                <label for="type-baidu">
-                                    <span style="color:#2100E0">UP云搜</span>
-                                </label>
-                            </li>
-                            <li>
-                                <input hidden="" type="radio" name="type" id="type-google">
-                                <label for="type-google">
-                                    <span style="color:#fa3b5e">易搜</span>
-                                </label>
-                            </li>
-                            <li>
-                                <input hidden="" type="radio" name="type" id="type-zhannei">
-                                <label for="type-zhannei">
-                                    <span style="color:#46f867">优聚搜</span>
-                                </label>
-                            </li>
-                            <li>
-                                <input hidden="" type="radio" name="type" id="type-taobao">
-                                <label for="type-taobao">
-                                    <span style="color:#f40">奈斯搜</span>
-                                </label>
-                            </li>
-                            <li>
-                                <input hidden="" type="radio" name="type" id="type-bing1">
-                                <label for="type-bing1">
-                                    <span style="color:#007daa">千帆搜</span>
-                                </label>
-                            </li>
-                            <li>
-                                <input hidden="" type="radio" name="type" id="type-bing">
-                                <label for="type-bing">
-                                    <span style="color:#0baa00">喵狸盘搜</span>
-                                </label>
-                            </li>
-                           
-                        
-                        </ul>
-                    </div>                
-                </div>
-                <form action="https://www.baidu.com/s?wd=" method="get" target="_blank" id="super-search-fm">
-                    <input type="text" id="search-text" placeholder="百度一下" style="outline:0"><button id="search-action" type="submit"><i class="fa fa-search "></i></button></form>
-                <div class="set-check hidden-xs">
-                    <input type="checkbox" id="set-search-blank" class="bubble-3" autocomplete="off">
-                </div>
-            </div>
-
-            <script>
-                const searchList = [
-                // 2. 需要改这个地方，这个列表的数量要和上面的对的上
-                //    默认渲染第一个
-                    {
-                        "name": "UP云搜",
-                        "url": "https://www.upyunso.com/search.html?page=1&keyword=",
-                        "placeholder": "UP云搜"
-                    },
-                    {
-                        "name": "易搜",
-                        "url": "https://yiso.fun/info?searchKey=",
-                        "placeholder": "易搜"
-                    },
-                    {
-                        "name": "优聚搜",
-                        "url": "https://kankanso.com/#/main/common?q=",
-                        "placeholder": "优聚搜"
-                    },
-                    {
-                        "name": "奈斯搜",
-                        "url": "https://www.niceso.net/search/?q=",
-                        "placeholder": "奈斯搜"
-                    },
-                    {
-                        "name": "千帆搜",
-                        "url": "https://tg.qianfan.app/search/?q=",
-                        "placeholder": "千帆搜"
-                    },
-                     {
-                        "name": "喵狸盘搜",
-                        "url": "https://www.alipansou.com/search?k=",
-                        "placeholder": "喵狸盘搜"
-                    }
-                    
-                ]
-                // 监听 ul search-type 的点击事件
-                const all_li = document.querySelectorAll('.search-type li')
-                // 默认渲染第一个
-                const { url, placeholder } = searchList[0]
-                document.querySelector('#super-search-fm').action = url
-                document.querySelector('#search-text').placeholder = placeholder
-                all_li.forEach((item, index) => {
-                    item.addEventListener('click', () => {
-                        // console.log(item)
-                        // console.log(index)
-                        // console.log(searchList[index])
-                        const { url, placeholder } = searchList[index]
-                        // console.log(url)
-                        // console.log(placeholder)
-                        // 修改 input 的 value
-                        document.querySelector('#super-search-fm').action = url
-                        // 修改 input 的 placeholder
-                        document.querySelector('#search-text').placeholder = placeholder
-                    })
-                })
-                // 去掉 #search-action 的默认行为
-                document.querySelector('#search-action').addEventListener('click', (e) => {
-                    e.preventDefault()
-                    // 获取 input 的 value
-                    const value = document.querySelector('#search-text').value
-                    // 获取 form 的 action
-                    const action = document.querySelector('#super-search-fm').action
-                    // 判断 placeholder 是否为百度一下
-                    window.open(action + value)
-                })
-            </script>
+          <div class="main-content">
+           <nav class="navbar user-info-navbar" role="navigation">
+            <ul class="user-info-menu left-links list-inline list-unstyled">
+               <li class="hidden-sm hidden-xs">
+            <a href="#" data-toggle="sidebar">
+                 <i class="fa-bars"></i>
+             </a>
+             </li>
+               <li>
+                <a href="#" style="padding:30px 20px">
+                <i class="fa fa-home"></i> 主页
+                 </a>
+                  </li>
+                     <li>
+                   <a href="https://moyuduck.com" target="_blank" style="padding:30px 20px">
+                    <i class="fa-solid fa-heart"></i> 今日热榜
+                   </a>
+                   </li>
+                     <li>
+                       <a href="https://dz.wanchatgpt.top" target="_blank" style="padding:30px 20px">
+                      <i class="fa-solid fa-heart"></i> 体验ChatGPT
+                      </a>
+                      </li>
+                    </ul>
+                       </nav>
             
              <!-- 本站置顶 -->
             <h4 class="text-gray"><i class="linecons-tag" style="margin-right: 7px;" id="本站置顶"></i>本站置顶</h4>
