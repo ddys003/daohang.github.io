@@ -1,2 +1,2 @@
-api：nv-SMeZhvUbyQFFTvZ8jluiN0V4x0SSxl79UxNARufhGcZDhM49
+nv-SMeZhvUbyQFFTvZ8jluiN0V4x0SSxl79UxNARufhGcZDhM49
 https://api.nova-oss.com/v1
